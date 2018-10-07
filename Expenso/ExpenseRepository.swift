@@ -19,11 +19,15 @@ class ExpenseRepository {
     func numExpense() -> Int {
         return expenses.count
     }
+    func append(_ expense:Expense) {
+        expenses.append(expense)
+    }
     func minTotal() -> Double {
         var min = 0.0
         if expenses.count > 0 {
+            min = expense(0).total
             if expenses.count == 1 {
-                min = expenses[0].total
+                min = expense(0).total
             } else {
                 for expense in expenses {
                     if min > expense.total {
@@ -33,15 +37,15 @@ class ExpenseRepository {
             }
         }
         
-        
         return Double(round(100 * min)/100)
+        
     }
     
     func maxTotal() -> Double {
         var max = 0.0
         if expenses.count > 0 {
             if expenses.count == 1 {
-                max = expenses[0].total
+                max = expense(0).total
             } else {
                 for expense in expenses {
                     if max < expense.total {
@@ -59,10 +63,10 @@ class ExpenseRepository {
         var mean = 0.0
         if expenses.count > 0 {
             if expenses.count == 1 {
-                mean = expenses[0].total
+                mean = expense(0).total
             } else {
                 for expense in expenses {
-                   mean += expense.total
+                    mean += expense.total
                 }
             }
         }

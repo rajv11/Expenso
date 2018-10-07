@@ -16,7 +16,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate,UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.viewDidLoad()
         self.loadView()
         repo = ExpenseRepository.expensRepo
     }

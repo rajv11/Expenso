@@ -9,7 +9,7 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
-
+    
     @IBOutlet weak var locationTF: UITextField!
     @IBOutlet weak var amountTF: UITextField!
     @IBOutlet weak var tipTF: UITextField!
@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
     
     func total(_ amount:Double,_ tip:Double) -> Double {
         let totalAmt = amount + (amount * (tip / 100))
+        
         return Double(round(100 * totalAmt)/100)
     }
     
@@ -47,8 +48,8 @@ class CalculatorViewController: UIViewController {
             let total = self.total(amount, tip)
             
             let bill:Expense = Expense(location: location,amount: amount, tip: tip, total: total)
-            ExpenseRepository.expensRepo.expenses.append(bill)
-            totalLBL.text = "$\(bill.total)"
+            ExpenseRepository.expensRepo.append(bill)
+            totalLBL.text = "$\(total)"
         } else {
             self.display(title: "Invalid Input", msg: "Please Enter valid amount and tip")
         }
@@ -58,7 +59,7 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-
+    
+    
 }
 
