@@ -9,8 +9,8 @@
 import Foundation
 class ExpenseRepository {
     static let expensRepo = ExpenseRepository()
-    var expenses:[Expense]
-    init() {
+    private var expenses:[Expense]
+    private init() {
         expenses = []
     }
     func expense(_ index:Int) -> Expense {
@@ -19,5 +19,68 @@ class ExpenseRepository {
     func numExpense() -> Int {
         return expenses.count
     }
+    func minTotal() -> Double {
+        var min = 0.0
+        if expenses.count > 0 {
+            if expenses.count == 1 {
+                min = expenses[0].total
+            } else {
+                for expense in expenses {
+                    if min > expense.total {
+                        min = expense.total
+                    }
+                }
+            }
+        }
+        
+        
+        return Double(round(100 * min)/100)
+    }
     
+    func maxTotal() -> Double {
+        var max = 0.0
+        if expenses.count > 0 {
+            if expenses.count == 1 {
+                max = expenses[0].total
+            } else {
+                for expense in expenses {
+                    if max < expense.total {
+                        max = expense.total
+                    }
+                }
+            }
+        }
+        
+        
+        return Double(round(100 * max)/100)
+    }
+    
+    func meanTotal() -> Double {
+        var mean = 0.0
+        if expenses.count > 0 {
+            if expenses.count == 1 {
+                mean = expenses[0].total
+            } else {
+                for expense in expenses {
+                   mean += expense.total
+                }
+            }
+        }
+        return Double(round(100 * mean)/100)
+    }
+    
+    func variance() -> Double {
+        var sum = 0.0
+        var variance = 0.0
+        if expenses.count == 0 {
+            return 0.0
+        } else {
+            for expense in expenses {
+                sum += pow((expense.total - meanTotal()), 2.0)
+            }
+            variance = sum/Double(expenses.count)
+        }
+        
+        return Double(round(100 * variance)/100)
+    }
 }

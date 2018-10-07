@@ -13,7 +13,7 @@
 		3F593FAC2165829800364E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F593FAA2165829800364E1D /* Main.storyboard */; };
 		3F593FAE2165829900364E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F593FAD2165829900364E1D /* Assets.xcassets */; };
 		3F593FB12165829900364E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F593FAF2165829900364E1D /* LaunchScreen.storyboard */; };
-		3F593FB92165848800364E1D /* StatisticaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593FB82165848800364E1D /* StatisticaViewController.swift */; };
+		3F593FB92165848800364E1D /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593FB82165848800364E1D /* StatisticsViewController.swift */; };
 		3F593FBB2165958300364E1D /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593FBA2165958300364E1D /* Expense.swift */; };
 		3F593FBD216597AF00364E1D /* ExpenseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593FBC216597AF00364E1D /* ExpenseRepository.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +27,7 @@
 		3F593FAD2165829900364E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F593FB02165829900364E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F593FB22165829900364E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F593FB82165848800364E1D /* StatisticaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticaViewController.swift; sourceTree = "<group>"; };
+		3F593FB82165848800364E1D /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		3F593FBA2165958300364E1D /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		3F593FBC216597AF00364E1D /* ExpenseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +65,7 @@
 				3F593FA42165829800364E1D /* AppDelegate.swift */,
 				3F593FA62165829800364E1D /* CalculatorViewController.swift */,
 				3F593FA82165829800364E1D /* HistoryViewController.swift */,
-				3F593FB82165848800364E1D /* StatisticaViewController.swift */,
+				3F593FB82165848800364E1D /* StatisticsViewController.swift */,
 				3F593FBA2165958300364E1D /* Expense.swift */,
 				3F593FBC216597AF00364E1D /* ExpenseRepository.swift */,
 				3F593FAA2165829800364E1D /* Main.storyboard */,
@@ -148,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F593FA92165829800364E1D /* HistoryViewController.swift in Sources */,
-				3F593FB92165848800364E1D /* StatisticaViewController.swift in Sources */,
+				3F593FB92165848800364E1D /* StatisticsViewController.swift in Sources */,
 				3F593FA52165829800364E1D /* AppDelegate.swift in Sources */,
 				3F593FA72165829800364E1D /* CalculatorViewController.swift in Sources */,
 				3F593FBD216597AF00364E1D /* ExpenseRepository.swift in Sources */,

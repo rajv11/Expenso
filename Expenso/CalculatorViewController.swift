@@ -14,12 +14,27 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var amountTF: UITextField!
     @IBOutlet weak var tipTF: UITextField!
     @IBOutlet weak var totalLBL: UILabel!
+    
+    func total(_ amount:Double,_ tip:Double) -> Double {
+        let totalAmt = amount + (amount * (tip / 100))
+        return Double(round(100 * totalAmt)/100)
+    }
+    
     func display(title:String, msg:String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    @IBAction func amountTipAction(_ sender: Any) {
+        if let amount = Double(amountTF.text!), let tip  = Double(tipTF.text!), amount >= 0, tip >= 0 {
+            let total = self.total(amount, tip)
+            totalLBL.text = "$\(total)"
+        } else {
+            self.display(title: "Invalid Input", msg: "Please Enter valid amount and tip")
+        }
+    }
+    
     
     @IBAction func transcribe(_ sender: Any) {
         var location:String
@@ -29,7 +44,9 @@ class CalculatorViewController: UIViewController {
             location = locationTF.text!
         }
         if let amount = Double(amountTF.text!), let tip  = Double(tipTF.text!), amount >= 0, tip >= 0 {
-            let bill:Expense = Expense(location: location,amount: amount, tip: tip)
+            let total = self.total(amount, tip)
+            
+            let bill:Expense = Expense(location: location,amount: amount, tip: tip, total: total)
             ExpenseRepository.expensRepo.expenses.append(bill)
             totalLBL.text = "$\(bill.total)"
         } else {

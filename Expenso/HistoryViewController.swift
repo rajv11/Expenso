@@ -9,7 +9,7 @@
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
-    var expense:[Expense] = []
+    var repo = ExpenseRepository.expensRepo
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +18,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         self.viewDidLoad()
         self.loadView()
-        expense = ExpenseRepository.expensRepo.expenses
-        
-        
+        repo = ExpenseRepository.expensRepo
     }
     
     let rowHeight = 60.0
@@ -29,7 +27,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expense.count
+        return repo.numExpense()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,10 +37,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate,UITableViewDa
         let tipLBL = cell.viewWithTag(300) as! UILabel
         let totalLBL = cell.viewWithTag(400) as! UILabel
         
-        locationLBL.text = expense[indexPath.row].location
-        amountLBL.text = "$\(expense[indexPath.row].amount),"
-        tipLBL.text = "\(expense[indexPath.row].tip)%,"
-        totalLBL.text = "$\(expense[indexPath.row].total)"
+        locationLBL.text = repo.expense(indexPath.row).location
+        amountLBL.text = "$\(repo.expense(indexPath.row).amount),"
+        tipLBL.text = "\(repo.expense(indexPath.row).tip)%,"
+        totalLBL.text = "$\(repo.expense(indexPath.row).total)"
         return cell
     }
 }

@@ -11,11 +11,6 @@ struct Expense {
     let location:String
     let amount:Double
     let tip:Double
-    
-    
-    var total:Double {
-        let totalAmt = amount + (amount * (tip / 100))
-        return Double(round(100 * totalAmt)/100)
-    }
+    var total:Double
     
 }

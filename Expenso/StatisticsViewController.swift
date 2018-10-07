@@ -8,15 +8,28 @@
 
 import UIKit
 
-class StatisticaViewController: UIViewController {
-
+class StatisticsViewController: UIViewController {
+    @IBOutlet weak var minTotalLBL: UILabel!
+    
+    @IBOutlet weak var maxTotalLBL: UILabel!
+    @IBOutlet weak var meanTotalLBL: UILabel!
+    @IBOutlet weak var varianceTotalLBL: UILabel!
+    
+    let expenses = ExpenseRepository.expensRepo
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadView()
+        minTotalLBL.text = "$\(expenses.minTotal())"
+        maxTotalLBL.text = "$\(expenses.maxTotal())"
+        meanTotalLBL.text = "$\(expenses.meanTotal())"
+        varianceTotalLBL.text = "$\(expenses.variance())"
+        
+    }
     /*
     // MARK: - Navigation
 
