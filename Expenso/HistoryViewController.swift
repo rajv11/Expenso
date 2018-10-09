@@ -17,10 +17,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate,UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         self.loadView()
-        repo = ExpenseRepository.expensRepo
+//        repo = ExpenseRepository.expensRepo
+        //tableView.reloadData()
+        
     }
     
-    let rowHeight = 60.0
+    let rowHeight = 45.0
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(rowHeight)
     }
